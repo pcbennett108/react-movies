@@ -7,12 +7,11 @@ import SearchIcon from "./search.svg";
 const API_URL = "http://www.omdbapi.com/?apikey=beb5ce4d";
 
 const movie1 = {
-  Title: "Superman, Spiderman or Batman",
-  Year: "2011",
-  imdbID: "tt2084949",
+  Title: "Spiderman",
+  Year: "1990",
+  imdbID: "tt0100669",
   Type: "movie",
-  Poster:
-    "https://m.media-amazon.com/images/M/MV5BMjQ4MzcxNDU3N15BMl5BanBnXkFtZTgwOTE1MzMxNzE@._V1_SX300.jpg",
+  Poster: "N/A",
 };
 
 const App = () => {
@@ -42,7 +41,21 @@ const App = () => {
       <div className="container">
         <div className="movie">
           <div>
-            <p>{movie1.year}</p>
+            <p>{movie1.Year}</p>
+          </div>
+          <div>
+            <img
+              src={
+                movie1.Poster !== "N/A"
+                  ? movie1.Poster
+                  : "https://via.placeholder.com/400"
+              }
+              alt={movie1.Title}
+            />
+          </div>
+          <div>
+            <span>{movie1.Type}</span>
+            <h3>{movie1.Title}</h3>
           </div>
         </div>
       </div>
