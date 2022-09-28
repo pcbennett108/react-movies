@@ -1,24 +1,26 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
+
 import "./App.css";
+import searchIcon from "./search.svg";
+
+const API_URL = "http://www.omdbapi.com/?apikey=beb5ce4d";
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
+  const searchMovies = async (title) => {
+    const response = await fetch(`${API_URL}&s=${title}`);
+    const data = await response.json();
+
+    console.log(data.Search);
+  };
 
   useEffect(() => {
-    alert("You've changed the counter to " + counter);
-  }, [counter]);
+    searchMovies("spiderman");
+  }, []);
 
-  return (
-    <div className="App">
-      <button onClick={() => setCounter((prevCount) => prevCount - 1)}>
-        -
-      </button>
-      <h1>{counter}</h1>
-      <button onClick={() => setCounter((prevCount) => prevCount + 1)}>
-        +
-      </button>
-    </div>
-  );
+  return <h1></h1>;
 };
 
 export default App;
+
+//OMDb key = beb5ce4d
